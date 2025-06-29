@@ -34,12 +34,11 @@ Built with ❤️ using:
 - **Responsive Design** – mobile-first, works on all screen sizes
 - **Flexbox & CSS gradients** – for a modern look and feel
 
----
+
+
 
 ## 📸 Screenshots
-
-_(Optional: Add 1–2 screenshots here using GitHub’s image upload or external links)_
-
+---![Screenshot 2025-06-29 alle 17 04 11](https://github.com/user-attachments/assets/7f66d7e4-ff35-4126-9ce5-e725ba05cf7d)
 ---
 
 ## 🚀 Getting Started (Dev Mode)
