@@ -46,5 +46,5 @@ Built with ❤️ using:
 Clone the repo and launch with Live Server (or any static web server):
 
 ```bash
-git clone https://github.com/your-username/the-counter-top.git
+git clone https://github.com/NicolaRo/the-counter-top.git
 cd the-counter-top
