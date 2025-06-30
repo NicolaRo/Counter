@@ -6,14 +6,20 @@ function newElement(parent, tag, className, content) {
   parent.appendChild(el);
   return el;
 }
+// 2. Funzione per il copy-to-clipboard (che potrà essere assegnata a qualisasi altro elemento in futuro)
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text)
+    .then(() => console.log('Copied to clipboard'))
+    .catch(err => console.error('Error copying:', err));
+}
 
-// 2. Seleziono il <main>
+// 3. Seleziono il <main>
 const mainTag = document.querySelector('main');
 
-// 3. Numero iniziale
+// 3. Dichiaro il valore iniziale del counter
 let counterNumber = 0;
 
-// 4. Creo il contenitore instructions a scomparsa (vuoto)
+// 4. Creo il contenitore (vuoto) instructions a scomparsa (settato nel .scss)
 const instructions = newElement(mainTag, 'div', 'instructions', '');
 
 // 4.a. Aggiungo il titolo <h3>
@@ -34,15 +40,20 @@ const counterSecondary = newElement(instructions, 'div', 'counterSecondary', '')
 
 // 6. Aggiungo i bottoni dentro il contenitore secondario
 const resetButton = newElement(counterSecondary, 'button', 'secondaryButton', 'Reset');
+resetButton.setAttribute('title', 'Reset the counter to 0'); // Aggiungo: "title" con descrizione bottone per migliorare acessibilità.
 const recordButton = newElement(counterSecondary, 'button', 'secondaryButton', 'Record');
+recordButton.setAttribute('title', 'Save the current counter value');// Aggiungo: "title" con descrizione bottone per migliorare acessibilità.
 
 // 7. Creo il contenitore dei bottoni e del display
 const counterPrimary = newElement(mainTag, 'div', 'counterPrimary', '');
 
 // 8. Creo i bottoni +, display, e - nello stesso contenitore
 const plusButton = newElement(counterPrimary, 'button', 'primaryButton', '+');
+plusButton.setAttribute('title', 'Increase the counter by 1');// Aggiungo: "title" con descrizione bottone per migliorare acessibilità.
 const counterDisplay = newElement(counterPrimary, 'div', 'counterDisplay', counterNumber);
 const minusButton = newElement(counterPrimary, 'button', 'primaryButton', '-');
+minusButton.setAttribute('title', 'Decrease the counter by 1');// Aggiungo: "title" con descrizione bottone per migliorare acessibilità.
+
 
 // 9. Aggiungo funzionalità ai bottoni
 plusButton.addEventListener('click', () => {
@@ -51,8 +62,10 @@ plusButton.addEventListener('click', () => {
 });
 
 minusButton.addEventListener('click', () => {
-  counterNumber--;
-  counterDisplay.textContent = counterNumber;
+  if (counterNumber > 0) {
+    counterNumber--;
+    counterDisplay.textContent = counterNumber;
+  }
 });
 
 resetButton.addEventListener('click', () => {
@@ -76,43 +89,37 @@ const counterRecordsText = newElement(
   `See below the counted clicks recorded to keep track of your counting.`
 );
 
-// 11. Funzione per gestire il copy
-function setupRecordCard(recordCard, recordText) {
-  const copyRecordsButton = newElement(recordCard, 'button', 'copyButtons', 'COPY');
-  
-  copyRecordsButton.addEventListener('click', () => {
-      navigator.clipboard.writeText(recordText)
-          .then(() => {
-              console.log('Copied to clipboard');
-          })
-          .catch(err => {
-              console.error('Error, retry', err);
-          });
-  });
-  
-  return copyRecordsButton;
-}
 
 // 12. Creo le card per la visualizzazione dei record e della data
 recordButton.addEventListener('click', () => {
   if (counterNumber !== 0) {
-      counterRecordsContainer.style.display = 'flex';
-      counterRecordsContainer.style.flexDirection = 'column';
-      
-      const recordCard = document.createElement('div');
-      recordCard.className = 'recordCard';
-      
-      const recordText = `Value: ${counterNumber} - ${new Date().toLocaleString()}`;
-      recordCard.textContent = recordText;
-      
-      counterRecordsContainer.appendChild(recordCard);
-      
-      const deleteRecordsButton = newElement(recordCard, 'button', 'deleteButtons', 'X');
-      deleteRecordsButton.addEventListener('click', (event) => {
-          event.target.parentElement.remove();
-      });
-      
-      // Uso la funzione per gestire il copy button
-      setupRecordCard(recordCard, recordText);
+    counterRecordsContainer.classList.add('visible');
+
+    const recordText = `Value: ${counterNumber} - ${new Date().toLocaleString()}`;
+    const recordCard = newElement(counterRecordsContainer, 'div', 'recordCard', recordText);
+    recordCard.setAttribute('data-record', recordText);
+
+    counterRecordsContainer.appendChild(recordCard);
+    
+    const deleteButton = newElement(recordCard, 'button', 'deleteButtons', 'X');
+    deleteButton.setAttribute('title', 'Delete this record');
+
+    const copyButton = newElement(recordCard, 'button', 'copyButtons', 'COPY');
+    copyButton.setAttribute('title', 'Copy this record to clipboard');
+  }
+});
+
+counterRecordsContainer.addEventListener('click', (event) => {
+  const target = event.target;
+
+  // 13 Cancella la recordCard (parentElement indica quale specifica card eliminare: la parent)
+  if (target.classList.contains('deleteButtons')) {
+    target.parentElement.remove();
+  }
+
+  // Copia il testo dal data-record
+  if (target.classList.contains('copyButtons')) {
+    const recordText = target.parentElement.getAttribute('data-record');
+    copyToClipboard(recordText);
   }
 });
