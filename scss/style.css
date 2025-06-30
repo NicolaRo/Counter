@@ -242,7 +242,7 @@ body {
 
 .instructions {
   display: none;
-  transition: ease-in-out 0.45ms;
+  transition: all 0.45s ease-in-out;
   border-radius: 10px;
 }
 
@@ -256,31 +256,6 @@ body {
   text-shadow: #22de61;
 }
 
-/*
-.instructions {
-    display: none;
-    transition: ease-in-out 0.5s;
-    border-radius: 10px;
-}
-
-#instructions:checked ~ .instructions {
-    display: flex;
-    flex-direction: column;
-    width: auto;
-    height: auto;
-    margin: 1%;
-    padding: 1%;
-    background-color: rgba(0, 213, 255, 0.25);
-    transition: ease-in-out, 0.45ms;
-}
-
-#instructions:checked ~ .checkbox-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: auto;
-}
-*/
 .counterDisplay {
   background-image: url(../img/Space-zooming-GIF.gif);
   background-repeat: no-repeat;
@@ -306,18 +281,12 @@ body {
 
 .counterRecordsContainer {
   display: none;
-  transition: ease-in-out, 0.45ms;
+  transition: all 0.45s ease-in-out;
 }
 
-.counterRecordsContainer ~ ::content {
+.counterRecordsContainer.visible {
   display: flex;
   flex-direction: column;
-  width: auto;
-  height: auto;
-  margin: 1%;
-  padding: 1%;
-  background-color: rgba(0, 213, 255, 0.25);
-  transition: ease-in-out, 0.45ms;
 }
 
 .recordCard {
