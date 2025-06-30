@@ -19,8 +19,7 @@ This application lets you **count and record** values with a clean, responsive U
 
 ## 🧪 Try It Live
 
-👉 [Click here to try The Counter-Top online!]([https://your-deploy-link.netlify.app](https://thecountertop.netlify.app/))  
-_(Replace with your Netlify or Firebase link!)_
+👉 [Click here to try The Counter-Top online!]([https://thecountertop.netlify.app/)
 
 ---
 
