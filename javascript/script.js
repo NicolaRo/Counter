@@ -105,7 +105,7 @@ resetButton.addEventListener('click', () => {
 const counterRecordsContainer = newElement(mainTag, 'div', 'counterRecordsContainer', '');
 
 // 12.a. Aggiungo il titolo <h3>
-const recordsTitle = newElement(counterRecordsContainer, 'h3', '', 'Recorded clicks');
+const recordsTitle = newElement(counterRecordsContainer, 'h3', '', 'Recorded clicks'); // Aggiungo: "title" per tooltip visivo per migliorare acessibilità.
 
 // 12.b. Aggiungo il testo descrittivo dentro un <p>
 const counterRecordsText = newElement(
@@ -125,13 +125,26 @@ recordButton.addEventListener('click', () => {
     recordCard.setAttribute('data-record', recordText);
     
     const deleteButton = newElement(recordCard, 'button', 'deleteButtons', 'X');
-    deleteButton.setAttribute('title', 'Delete this record');
+    deleteButton.setAttribute('title', 'Delete this record'); // Aggiungo: "title" per tooltip visivo per migliorare acessibilità.
     deleteButton.setAttribute('aria-label', 'Delete this record'); // Aggiungo: "aria-label" letto da screen-reader per migliorare acessibilità.
 
     const copyButton = newElement(recordCard, 'button', 'copyButtons', 'COPY');
-    copyButton.setAttribute('title', 'Copy this record to clipboard');
+    copyButton.setAttribute('title', 'Copy this record to clipboard'); // Aggiungo: "title" per tooltip visivo per migliorare acessibilità.
     copyButton.setAttribute('aria-label', 'Copy this record to clipboard'); // Aggiungo: "aria-label" letto da screen-reader per migliorare acessibilità. 
   }
+  else if (counterNumber === 0) {
+    const messageDiv = newElement(document.body, 'div', 'error-message', "Can not record a values equal or negative than 0"); // Creo il messaggio di errore, migliora la UX. ")
+    counterDisplay.classList.add("counter-red"); // Aggiungo classe che cambia colore al display, migliorando la UX.
+    messageDiv.setAttribute('title', 'Can not record 0 or negative values'); // Aggiungo: "title" per tooltip visivo per migliorare acessibilità.
+    messageDiv.setAttribute('aria-label', 'Can not record 0 or negative values') // Aggiungo: "aria-label" letto da screen-reader per migliorare acessibilità.
+    messageDiv.setAttribute('role', 'alert');
+    messageDiv.classList.add('error-message');
+
+    setTimeout(() => {
+      messageDiv.remove();
+    }, 900)
+  }
+
 });
 
 counterRecordsContainer.addEventListener('click', (event) => {
