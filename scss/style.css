@@ -111,7 +111,7 @@
 }
 
 .deleteButtons {
-  background: linear-gradient(to top, rgba(189, 31, 31, 0.737), rgba(184, 200, 255, 0.754));
+  background: linear-gradient(to top, rgb(219, 18, 18), rgba(184, 200, 255, 0.754));
   color: #fefefe;
   max-width: 100px;
 }
@@ -156,7 +156,7 @@
   padding: 20px;
   border-radius: 10px;
   z-index: 9999;
-  background-color: #2244dc;
+  font-weight: bold;
   background: rgb(3, 174, 9) !important;
 }
 
@@ -169,8 +169,8 @@
   padding: 20px;
   border-radius: 10px;
   z-index: 9999;
-  background-color: #2244dc;
-  background: rgba(151, 5, 5, 0.5) !important;
+  font-weight: bold;
+  background: rgb(194, 4, 4) !important;
 }
 
 body {
