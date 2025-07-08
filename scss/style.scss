@@ -154,7 +154,11 @@ transform: rotate(90deg);
     }
 
 .counter-red {
-    background: red;
+    background: $negative-color;
+    transition: $transition-flash;
+}
+.counter-green {
+    background: $positive-color;
     transition: $transition-flash;
 }
 

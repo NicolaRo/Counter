@@ -298,7 +298,12 @@ body {
 }
 
 .counter-red {
-  background: red;
+  background: rgb(194, 4, 4);
+  transition: 0.3s ease-in-out;
+}
+
+.counter-green {
+  background: rgb(3, 174, 9);
   transition: 0.3s ease-in-out;
 }
 
