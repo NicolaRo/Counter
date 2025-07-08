@@ -1,0 +1,174 @@
+@use './variables/variables' as *;
+@use './variables/footer.scss' as *;
+@use './variables/buttons.scss' as *;
+* {
+    font-family: 'Quicksand', 'Ubuntu', sans-serif;
+    color: #e2f6e9;
+    text-decoration: none;
+    transition: all 1s ease-in-out;
+    margin:1%;
+    box-sizing: border-box;
+
+}
+.copy-message {
+    @include message-base;
+    background: $positive-color !important;
+}
+.error-message {
+    @include message-base;
+    background: $negative-color !important;
+}
+
+
+body {
+    background: linear-gradient(to right, rgb(80, 90, 125), rgb(225, 111, 50));
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 1%;
+}
+
+.header h1 {
+    font-size: 50px;
+    text-align: center;
+    margin: 2%;
+    font-weight: bolder;
+    color: #292b2a;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    text-shadow: 0px 0px 10px rgba(34, 222, 97, 0.7);
+}
+
+.toggle-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+    
+} 
+  
+.toggle-label {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0px 0px 10px rgb(255, 255, 255);
+}
+  
+.toggle-icon {
+    transition: transform 0.5s ease-in-out;
+    text-shadow: 0px 0px 10px rgb(255, 255, 255);
+}
+  
+  /* Rotazione quando attivo */
+#instructions:checked ~ h3 .toggle-label .toggle-icon {
+transform: rotate(90deg);
+}
+  
+
+#instructions:checked + .toggle-label .toggle-icon {
+    transform: rotate(90deg);
+}
+
+#instructions{
+    display:none;
+    
+
+    &:checked {
+        ~.instructions {
+            display: flex;
+            flex-direction: column;
+            width: auto;
+            height: auto;
+            margin: 1%;
+            padding: 1%;
+            background-color: $hidden-sections-bg;
+        }
+        ~.checkbox-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.instructions {
+    display: none;
+    border-radius:$border-radius;
+
+}
+.checkbox-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2%;
+    padding: 2%;
+    text-shadow: $text-shadow;
+  
+}
+
+.counterDisplay {
+    background-image: url(../img/Space-zooming-GIF.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:rgba(0, 213, 255, 0.85);
+    font-size: 90px;
+    text-align: center;
+    margin: 2%;
+    padding: 5%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(239, 250, 243, 0.5);
+    text-shadow: 0px 0px 10px rgba(57, 59, 57, 0.7);
+    width: 70%;
+    min-width: 150px;
+    max-width: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid rgba(222, 181, 34, 0.5);
+}
+
+.counterRecordsContainer {
+    display: none;
+}
+
+.counterRecordsContainer.visible {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    background-color: $hidden-sections-bg;
+    border-radius: $border-radius;
+    }
+
+.counter-red {
+    background: red;
+    transition: $transition-flash;
+}
+
+.recordCard {
+    margin: 1%;
+    padding: 1%;
+    background-color: rgba(0, 213, 255, 0.25);
+    font-size: larger;
+    color: #ffffff;
+    padding: 2% 2%;
+    border-radius: 10px;
+    font-size: 18px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0px 0px 5px rgba(34, 222, 97, 0.7);
+    flex-direction: row;
+}

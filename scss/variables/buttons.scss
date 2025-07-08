@@ -1,0 +1,132 @@
+@use './variables.scss' as *;
+
+%buttonBase {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  border-radius: $border-radius;
+  cursor: pointer;
+  text-shadow: 0 0 5px $color-primary;
+  box-shadow: $shadow;
+  border: 2px solid rgba($color-primary, 0.5);
+  width: 100%;
+  min-width: 50px;
+  max-width: 300px;
+  height: auto;
+}
+
+%utilityButton {
+  font-size: 20px;
+  padding: 5px 15px;
+  margin: 5px 15px;
+
+  &:active {
+    transform: scale(0.7);
+  }
+}
+
+@mixin focus-style {
+  outline-color: $focus-color;
+  box-shadow: 0 0 0 4px #0151a7;
+}
+
+.primaryButton {
+  @extend %buttonBase;
+  background: linear-gradient(to top, $color-primary, $color-secondary);
+  color: $buttons-text;
+  font-size: 70px;
+  padding: 10px 20px;
+  margin: 10px;
+
+  &:hover {
+    background: linear-gradient(to top, rgba($color-primary, 0.7), rgba($color-secondary, 0.7));
+  }
+
+  &:focus {
+    @include focus-style;
+  }
+
+  &:active {
+    transform: scale(0.7);
+    background: linear-gradient(to top, rgba($color-primary, 0.4), rgba($color-secondary, 0.4));
+  }
+}
+
+.secondaryButton {
+  @extend %buttonBase;
+  background: linear-gradient(to top, $color-primary, $color-secondary);
+  color: $buttons-text;
+  font-size: 20px;
+  padding: 5px 15px;
+  margin: 5px 15px;
+
+  &:hover {
+    background: linear-gradient(to top, rgba($color-primary, 0.7), rgba($color-secondary, 0.7));
+  }
+
+  &:focus {
+    @include focus-style;
+  }
+
+  &:active {
+    transform: scale(0.7);
+    background: linear-gradient(to top, rgba($color-primary, 0.4), rgba($color-secondary, 0.4));
+  }
+}
+
+.copyButtons,
+.deleteButtons {
+  @extend %buttonBase;
+  @extend %utilityButton;
+}
+
+.copyButtons {
+  background: linear-gradient(to top, rgba($color-primary, 0.75), rgba($color-secondary, 0.75));
+  color: $buttons-text;
+  max-width: 100px;
+
+
+  &:active {
+    background: linear-gradient(to top, rgba($color-primary, 0.4), rgba($color-secondary, 0.4));
+
+  }
+  &:focus {
+    @include focus-style;
+  }
+}
+
+.deleteButtons {
+  background: linear-gradient(to top, $color-danger, rgba(184, 200, 255, 0.754));
+  color: #fefefe;
+  max-width: 100px;
+
+  &:active {
+    background: linear-gradient(to top, rgba(189, 31, 31, 0.54), rgba(184, 201, 255, 0.49));
+  }
+  &:focus {
+    @include focus-style;
+  }
+}
+
+%counterBase {
+  color: $buttons-text;
+  padding: 2% 2%;
+  border-radius: $border-radius;
+  text-shadow:$text-shadow;
+  display:flex;
+  flex-direction:row;
+  font-size: larger;
+}
+
+
+.counterPrimary {
+  @extend %counterBase;
+}
+.counterSecondary {
+  @extend %counterBase;
+  margin: 10px;
+  justify-content: space-between;
+ 
+}
+

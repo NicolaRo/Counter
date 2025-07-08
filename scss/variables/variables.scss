@@ -1,0 +1,36 @@
+$color-primary: rgb(34, 222, 97);
+$color-secondary: rgb(80, 90, 125);
+$color-accent: rgba(0, 213, 255, 0.25);
+$buttons-text: #ffffff;
+$color-danger: rgba(189, 31, 31, 0.737);
+$hidden-sections-bg: rgba(0, 213, 255, 0.25);
+$negative-color: rgba(151, 5, 5, 0.5);
+$positive-color: rgb(3, 174, 9);
+$error-message-background:red;
+
+// Font
+$font-primary: 'Quicksand', 'Ubuntu', sans-serif;
+
+// Shadow & border
+$shadow: 0px 0px 10px rgba(34, 222, 97, 0.5);
+$text-shadow: #22de61;
+$border-radius: 10px;
+$focus-color: #2244dc;
+
+// Transitions
+$transition-message:2s ease-in-out;
+$transition-flash: 0.3s ease-in-out;
+$transition: 0.3s ease-in-out;
+
+@mixin message-base {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $buttons-text;
+    padding: 20px;
+    border-radius: $border-radius;
+    z-index: 9999;
+    background-color: #2244dc;
+
+}
