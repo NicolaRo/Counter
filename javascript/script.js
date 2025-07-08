@@ -132,11 +132,10 @@ recordButton.addEventListener('click', () => {
   } else if (counterNumber === 0) {
     const messageDiv = newElement(document.body, 'div', 'error-message', 'Can not record a value of 0') // Creo il messaggio di errore, migliora la UX.
     messageDiv.setAttribute('role', 'alert'); // Aggiungo "role" per migliorare l'accessibilità.
-    counterDisplay.classList.add("counter-green"); // Aggiungo classe che cambia colore al display, migliorando la UX.
+    counterDisplay.classList.add("counter-red"); // Aggiungo classe che cambia colore al display, migliorando la UX.
     
-    setTimeout(() => { // Imposto timer per il messaggio di conferma copia avvenuta + flash verde nel display per migliorare la UX.
-   
-      counterDisplay.classList("counter-green").remove();
+    setTimeout(() => {
+      counterDisplay.classList.remove("counter-red"); // Rimuovo la classe che cambia colore al display.
     }, 250);
 
     setTimeout(()=> {
