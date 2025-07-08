@@ -140,9 +140,13 @@ recordButton.addEventListener('click', () => {
     messageDiv.setAttribute('role', 'alert');
     messageDiv.classList.add('error-message');
 
-    setTimeout(() => {
+    setTimeout(() => {  // Imposto timer per il messaggio di errore.
       messageDiv.remove();
-    }, 900)
+    }, 900);
+    setTimeout(() => {
+      counterDisplay.classList.remove("counter-red"); // Rimuovo la classe che cambia colore al display.
+
+    })
   }
 
 });
@@ -160,7 +164,7 @@ counterRecordsContainer.addEventListener('click', (event) => {
     setTimeout(() => {
       counterDisplay.classList.remove("counter-red"); // Rimuovo la classe che cambia colore al display.
     }, 150);
-    setTimeout(() => {
+    setTimeout(() => { // Imposto timer per il messaggio di errore.
       messageDiv.remove();
     }, 900);  
     }
@@ -176,7 +180,7 @@ counterRecordsContainer.addEventListener('click', (event) => {
   setTimeout(() => {
     counterDisplay.classList.remove("counter-green"); // Rimuovo la classe che cambia colore al display.
   }, 150);
-  setTimeout(() => {
+  setTimeout(() => {  // Imposto timer per il messaggio di errore.
     messageDiv.remove();
   }, 900);    
   }
