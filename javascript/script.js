@@ -78,8 +78,10 @@ minusButton.addEventListener('click', () => {
     
     setTimeout(() => { // Imposto timer per il messaggio di errore.
       messageDiv.remove();
-      counterDisplay.classList.remove("counter-red"); // Rimuovo la classe che cambia colore al display.
     }, 850);
+    setTimeout(() => {
+      counterDisplay.classList.remove("counter-red"); // Rimuovo la classe che cambia colore al display.
+    }, 500);
   }
 });
 
