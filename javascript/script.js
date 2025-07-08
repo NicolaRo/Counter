@@ -133,7 +133,7 @@ recordButton.addEventListener('click', () => {
     copyButton.setAttribute('aria-label', 'Copy this record to clipboard'); // Aggiungo: "aria-label" letto da screen-reader per migliorare acessibilità. 
   }
   else if (counterNumber === 0) {
-    const messageDiv = newElement(document.body, 'div', 'error-message', "Can not record a values equal or negative than 0"); // Creo il messaggio di errore, migliora la UX. ")
+    const messageDiv = newElement(document.body, 'div', 'error-message', "Can not record a values equal or less than 0"); // Creo il messaggio di errore, migliora la UX. ")
     counterDisplay.classList.add("counter-red"); // Aggiungo classe che cambia colore al display, migliorando la UX.
     messageDiv.setAttribute('title', 'Can not record 0 or negative values'); // Aggiungo: "title" per tooltip visivo per migliorare acessibilità.
     messageDiv.setAttribute('aria-label', 'Can not record 0 or negative values') // Aggiungo: "aria-label" letto da screen-reader per migliorare acessibilità.
