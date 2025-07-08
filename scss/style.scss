@@ -13,10 +13,12 @@
 .copy-message {
     @include message-base;
     background: $positive-color !important;
+
 }
 .error-message {
     @include message-base;
     background: $negative-color !important;
+    
 }
 
 
