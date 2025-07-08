@@ -142,8 +142,7 @@
   font-family: "Quicksand", "Ubuntu", sans-serif;
   color: #e2f6e9;
   text-decoration: none;
-  transition: all 1s ease-in-out;
-  margin: 1%;
+  margin: 0;
   box-sizing: border-box;
 }
 
@@ -175,6 +174,7 @@
 
 body {
   background: linear-gradient(to right, rgb(80, 90, 125), rgb(225, 111, 50));
+  margin: 2%;
 }
 
 .header {
@@ -215,7 +215,7 @@ body {
 }
 
 .toggle-icon {
-  transition: transform 0.5s ease-in-out;
+  transition: 0.3s ease-in-out;
   text-shadow: 0px 0px 10px rgb(255, 255, 255);
 }
 
@@ -237,7 +237,7 @@ body {
   width: auto;
   height: auto;
   margin: 1%;
-  padding: 1%;
+  padding: 2%;
   background-color: rgba(0, 213, 255, 0.25);
 }
 #instructions:checked ~ .checkbox-container {
@@ -291,8 +291,8 @@ body {
 .counterRecordsContainer.visible {
   display: flex;
   flex-direction: column;
-  margin: 0;
-  padding: 0;
+  margin: 1%;
+  padding: 1%;
   background-color: rgba(0, 213, 255, 0.25);
   border-radius: 10px;
 }
@@ -311,12 +311,12 @@ body {
   margin: 1%;
   padding: 1%;
   background-color: rgba(0, 213, 255, 0.25);
+  border-radius: 10px;
   font-size: larger;
   color: #ffffff;
   padding: 2% 2%;
-  border-radius: 10px;
   font-size: 18px;
-  margin: 10px;
+  margin: 1%;
   display: flex;
   align-items: center;
   justify-content: center;

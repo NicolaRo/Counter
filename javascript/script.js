@@ -13,7 +13,7 @@ function copyToClipboard(text) {
     .catch(err => console.error('Error copying:', err));
 }
 
-// 3. Funzione per formato data
+// 3. Creo funzione per formato data
 
 function formatRecord(counterNumber) {
   return `Value: ${counterNumber} - ${new Date().toLocaleString()}`;
@@ -87,7 +87,7 @@ minusButton.addEventListener('click', () => {
     
     setTimeout(() => { // Imposto timer per il messaggio di errore.
       messageDiv.remove();
-    }, 850);
+    }, 900);
     setTimeout(() => {
       counterDisplay.classList.remove("counter-red"); // Rimuovo la classe che cambia colore al display.
     }, 250);
@@ -141,6 +141,15 @@ counterRecordsContainer.addEventListener('click', (event) => {
   const deleteButton = target.closest('.deleteButtons');
     if (deleteButton) {
       deleteButton.parentElement.remove();
+      const messageDiv = newElement(document.body, 'div', 'error-message', 'The record has been deleted'); // Aggiungo messaggio conferma cancellazione record, migliorando la UX.
+      counterDisplay.classList.add("counter-red"); // Aggiungo classe che cambia colore al display, migliorando la UX.
+      
+    setTimeout(() => {
+      counterDisplay.classList.remove("counter-red"); // Rimuovo la classe che cambia colore al display.
+    }, 150);
+    setTimeout(() => {
+      messageDiv.remove();
+    }, 900);  
     }
 
  // 15. Copia il testo dal data-record
@@ -156,7 +165,7 @@ counterRecordsContainer.addEventListener('click', (event) => {
   }, 150);
   setTimeout(() => {
     messageDiv.remove();
-  }, 700);    
+  }, 900);    
   }
 });
 
