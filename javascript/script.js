@@ -145,8 +145,7 @@ recordButton.addEventListener('click', () => {
     }, 900);
     setTimeout(() => {
       counterDisplay.classList.remove("counter-red"); // Rimuovo la classe che cambia colore al display.
-
-    })
+    }, 150);
   }
 
 });
